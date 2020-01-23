@@ -6,10 +6,12 @@ function Chronometer() {
 }
 
 Chronometer.prototype.startClick = function () {
-    intervalId = setInterval(function(){
-        chronometer.currentTime += 1;
-        chronometer.setTime();
-     }, 1000);
+    //var chronometerObj = this;
+    intervalId = setInterval (myCallback.bind(this), 1000)
+    function myCallback() {
+        this.currentTime += 1;
+        this.setTime();
+     };
 };
 
 Chronometer.prototype.setMinutes = function () {
@@ -51,4 +53,4 @@ Chronometer.prototype.resetClick = function () {
 
 // Chronometer.prototype.splitClick = function () {
 
-// };
+
